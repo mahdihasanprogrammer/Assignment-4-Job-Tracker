@@ -27,10 +27,10 @@
 
 </head>
 <body class="bg-base-200">
-    <main class="max-w-6xl mx-auto container px-4">
+    <main class="">
 
         <!-- navbar -->
-        <nav class="pt-10 pb-7.5">
+        <nav class="pt-10 pb-7.5 max-w-6xl mx-auto container px-4">
             <h1 class="font-bold text-3xl text-[#002C5C]">Job Application Tracker</h1>
 
             <div class="flex flex-wrap gap-4 py-5 border-b-2 border-base-300">
@@ -50,11 +50,11 @@
             </div>
         </nav>
 
-        <!-- jobs section -->
-        <section class=" pb-10">
+        <!-- main part  -->
+        <main class=" pb-10 max-w-6xl mx-auto container px-4">
 
-            <!-- available jobs box -->
-            <div class="space-y-6 mb-4">
+            <!-- available jobs section -->
+            <section class="space-y-6 mb-4">
                 <div class="flex justify-between items-center">
                     <h3 class="text-[#002C5C] font-semibold text-xl">Available Jobs</h3>
                     <p class="font-medium text-base text-neutral/60">8 jobs</p>
@@ -65,11 +65,10 @@
                     <button class="btn bg-base-100 text-neutral/70  border-2 border-base-300">Interview</button>
                     <button class="btn  bg-base-100 text-neutral/70 border-2 border-base-300">Rejected</button>
                 </div>
-            </div>
+            </section>
 
-            <!-- Jobs card box -->
-
-            <div id="card-box" class="space-y-4">
+            <!-- Jobs card section -->
+            <section id="card-box" class="space-y-4">
                 <!-- card-1 -->
                 <div id="card-1" class="p-6 bg-base-100 rounded-lg shadow space-y-5">
                      <div>
@@ -323,9 +322,9 @@
                         <button class="btn border-2 border-red-500 hover:bg-red-600 hover:text-base-100 bg-transparent text-red-500">REJECTED</button>
                      </div>
                 </div>
-            </div>
+            </section>
           
-        </section>
+        </main>
     </main>
 
     <script src="./script/index.js"></script>
