@@ -1,14 +1,28 @@
 
 // Change totalCount , interviewCount, rejectedCount in display;
-function getTotalOrInterviewCountOrRejectedCount(){
-    totalCount.innerText= allCardSection.children.length;
+function updateAllCount(){
+    const totalJobs =allCardSection.children.length;
+    totalCount.innerText= totalJobs;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
+
+    // set available jobs;
+    if(currentStatus === 'interview-filter-btn'){
+        availableCount.innerText=`${interviewList.length} of ${totalJobs} Jobs`;
+    }
+    else if(currentStatus === 'rejected-filter-btn'){
+        availableCount.innerText=`${rejectedList.length} of ${totalJobs} Jobs`;
+    }
+    else{
+        availableCount.innerText=`${totalJobs} Jobs`;
+    }
+
+    
 }   
 
 
 
-// step : 1 toggleStyle function;
+//  toggleStyle function in all tab, interview tab and rejected tab;
 
 function toggleStyle(id){
     const allFilterBtn = document.getElementById('all-filter-btn');
@@ -52,4 +66,6 @@ function toggleStyle(id){
         filteredSection.classList.remove('hidden');
         renderRejected()
     }
+    // updated count;
+    updateAllCount()
 }

@@ -38,17 +38,17 @@
 
                 <div class="col-span-2 sm:col-span-1 shadow rounded-lg p-5 space-y-2 bg-base-100">
                     <p class="font-medium  text-neutral/90">Total</p>
-                    <h3 id="totalCount" class="text-2xl font-bold text-[#002C5C]">0</h3>
+                    <h3 id="totalCount" class="text-2xl font-bold text-blue-900">0</h3>
                 </div>
 
                 <div class="shadow rounded-lg p-5 space-y-2 bg-base-100">
                     <p class="font-medium  text-neutral/90">Interview</p>
-                    <h3 id="interviewCount" class="text-2xl font-bold text-success">0</h3>
+                    <h3 id="interviewCount" class="text-2xl font-bold text-green-600">0</h3>
                 </div>
 
                 <div class="shadow rounded-lg p-5 space-y-2 bg-base-100">
                     <p class="font-medium  text-neutral/90">Rejected</p>
-                    <h3 id="rejectedCount"  class="text-2xl font-bold text-error">0</h3>
+                    <h3 id="rejectedCount"  class="text-2xl font-bold text-red-600">0</h3>
                 </div>
             </div>
         </nav>
@@ -57,14 +57,14 @@
         <main class=" pb-10 max-w-6xl mx-auto container px-4">
 
             <!-- available jobs section -->
-            <section class="space-y-6 mb-6">
+            <section class="space-y-6 mb-6 relative">
                 <div class="flex justify-between items-center">
                     <h3 class="text-[#002C5C] font-semibold text-xl">Available Jobs</h3>
-                    <p class="font-medium text-base text-neutral/60">8 jobs</p>
+                    <p id="available-count" class="font-medium text-base text-neutral/60"></p>
                 </div>
 
                 <!-- buttons -->
-                <div class="flex flex-wrap gap-3 content-center">
+                <div class="flex flex-wrap gap-4">
                     <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="btn  bg-blue-500 text-base-100 px-8">All</button>
 
                     <button onclick="toggleStyle('interview-filter-btn')" id="interview-filter-btn" class="btn bg-base-100 text-neutral/70  border-2 border-base-300">Interview</button>

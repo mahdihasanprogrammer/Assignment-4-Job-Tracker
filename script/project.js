@@ -6,23 +6,25 @@ let currentStatus = 'all';
 
 
 
-//2. get totalCount , interviewCount, rejectedCount in display;
+//2. get totalCount , interviewCount, rejectedCount and availableCount in display;
 const totalCount = document.getElementById('totalCount');
 const interviewCount = document.getElementById('interviewCount');
 const rejectedCount = document.getElementById('rejectedCount');
+const availableCount = document.getElementById('available-count');
 
 
-// 3.Change totalCount , interviewCount, rejectedCount in display
+// 3.Change totalCount , interviewCount, rejectedCount availableCount in display
 const allCardSection = document.getElementById('all-card-section');
 const mainContainer = document.querySelector('main');
 
-getTotalOrInterviewCountOrRejectedCount();
+updateAllCount();
 
 
 // 4. set addEventListener in a main section and handle all child element button using delegation;
 
 mainContainer.addEventListener('click',function(event){
    
+    //1. interview btn listener;
     if(event.target.classList.contains('interview-btn')){
         const parentNode = event.target.parentNode.parentNode;
 
@@ -60,11 +62,12 @@ mainContainer.addEventListener('click',function(event){
         }
         
         // updated interviewCount;
-        getTotalOrInterviewCountOrRejectedCount();
+        updateAllCount();
          
     }
 
-    // rejected btn listener;
+
+    //2. rejected btn listener;
     else if(event.target.classList.contains('rejected-btn')){
          const parentNode = event.target.parentNode.parentNode;
 
@@ -102,19 +105,39 @@ mainContainer.addEventListener('click',function(event){
         }
         
         // updated interviewCount;
-        getTotalOrInterviewCountOrRejectedCount();
+        updateAllCount();
 
         // call  renderInterview() function. array theke item gula newar jonno;
          
         
     }
 
-    //   else  if(event.target.classList.contains('delete-btn')){
-    //   const parentNodeRemove= event.target.parentNode.parentNode.parentNode.parentNode.remove();
-    //     if(interviewList.length===0){
+    //3. delete btn listener;
+      else  if(event.target.classList.contains('delete-btn')){
+      const parentNodeRemove= event.target.parentNode.parentNode.parentNode.parentNode;
+        
+      const companyName = parentNodeRemove.querySelector('.company-name').innerText;
 
-    //     }
-    // }
+    //   remove btn parent;
+      parentNodeRemove.remove();
+
+    //   remove array form interview tab;
+      interviewList=interviewList.filter(item => item.companyName !== companyName);
+
+        // remove array form rejected tab;
+      rejectedList=rejectedList.filter(item => item.companyName !== companyName)
+
+      if(currentStatus === 'interview-filter-btn'){
+        renderInterview()
+      }
+       else if(currentStatus === 'rejected-filter-btn'){
+        renderRejected();
+       }
+      
+    //    updated count;
+      updateAllCount()
+        
+    }
   
 })
 
@@ -134,12 +157,13 @@ function renderInterview(){
     // add no-job card in filteredSection with condition;
     if(interviewList.length === 0){
         filteredSection.innerHTML = `
-        <div class="bg-base-100 rounded-lg text-center py-16 sm:py-22">
+        <div class="bg-base-100 rounded-lg text-center px-6 py-16 sm:py-22">
             <img class="mx-auto mb-5" src="./image/no_job_img.png" alt="no job img">
             <h2 class="text-[#002C5C] text-2xl font-semibold mb-1">No jobs available</h2>
             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
         </div>
         `;
+        updateAllCount()
         return;
     }
 
@@ -156,7 +180,7 @@ function renderInterview(){
                          <h3 class="company-name text-lg font-semibold">${interviewItem.companyName}</h3>
 
                          <button class="size-8 cursor-pointer rounded-full border-2 border-base-300 bg-base-100 text-neutral/70 box-content">
-                             <i class="delete-btn  fa-regular fa-trash-can text-base text-[#64748B]"></i>
+                             <i class="delete-btn fa-regular fa-trash-can text-base text-[#64748B]"></i>
                         </button>
 
                        </div>
@@ -186,6 +210,7 @@ function renderInterview(){
 }
 
 
+
 // function for rejectedList;
 function renderRejected(){
 
@@ -196,12 +221,13 @@ function renderRejected(){
 
        if(rejectedList.length === 0){
         filteredSection.innerHTML = `
-        <div class="bg-base-100 rounded-lg text-center py-16 sm:py-22">
+        <div class="bg-base-100 rounded-lg text-center px-6 py-16 sm:py-22">
             <img class="mx-auto mb-5" src="./image/no_job_img.png" alt="no job img">
             <h2 class="text-[#002C5C] text-2xl font-semibold mb-1">No jobs available</h2>
             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
         </div>
         `;
+        updateAllCount()
         return;
     }
     // start for of loop, interviewList array er moddo theke prottek item newar jonno;
