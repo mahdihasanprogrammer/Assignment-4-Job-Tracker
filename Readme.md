@@ -4,12 +4,11 @@ question : 1. What is the difference between getElementById, getElementsByClassN
 Ans:
     ১.getElementById এমন একটি method যার সাহায্যে DOM tree থেকে একটি নির্দিষ্ট এলিমেন্টকে ধরা যায়। পুরো পেজে একই id শুধু একবারই দেওয়া যায়, আর id ইউনিক হওয়ায় এটি ফাস্টার কাজ করে।
 
-    ২.getElementsByClassName এমন একটি মেথড যার সাহায্যে DOM tree থেকে একই ক্লাসের অনেকগুলো এলিমেন্টকে ধরা যায়। এটা HTMLCollection রিটার্ন করে।
+২.getElementsByClassName এমন একটি মেথড যার সাহায্যে DOM tree থেকে একই ক্লাসের অনেকগুলো এলিমেন্টকে ধরা যায়। এটা HTMLCollection রিটার্ন করে।
 
+৩.querySelector এমন একটি method যার সাহায্যে DOM tree থেকে CSS সিলেক্টর দিয়ে প্রথম matchig এলিমেন্টকে রিটার্ন করা হয়।
 
-    ৩.querySelector এমন একটি method যার সাহায্যে DOM tree থেকে CSS সিলেক্টর দিয়ে প্রথম matchig এলিমেন্টকে রিটার্ন করা হয়।
-
-    ৪. querySelectorAll এমন একটি method যার সাহায্যে DOM tree থেকে CSS সিলেক্টর দিয়ে  সব matchig এলিমেন্টকে রিটার্ন করা হয়। এটি NodeList রিটার্ন করে।
+ ৪. querySelectorAll এমন একটি method যার সাহায্যে DOM tree থেকে CSS সিলেক্টর দিয়ে  সব matchig এলিমেন্টকে রিটার্ন করা হয়। এটি NodeList রিটার্ন করে।
 
 
 
@@ -28,7 +27,7 @@ question: 3.  What is Event Bubbling? And how does it work?
 Answer:
    event bubbling হলো DOM এর একটি মেকানিজম, যেখানে কোন একটি  element এ event ট্রিগার হলে, সেই ইভেন্ট DOM tree এর মাধ্যমে উপরের দিকে bubble করে।
     
-    যেমন: কোন একটি button-এ click করা হলে সেখানে যদি event handler থাকে, তখন ওই button-এ event টা trigger হবে, এরপর ওই button-এর parent-এ যদি event handler থাকে সেটাও trigger হবে, এরপর তার parent-এ যদি event handler থাকে সেটাও trigger হবে, এভাবে উপরের দিকে উঠতে থাকবে document-পর্যন্ত।
+যেমন: কোন একটি button-এ click করা হলে সেখানে যদি event handler থাকে, তখন ওই button-এ event টা trigger হবে, এরপর ওই button-এর parent-এ যদি event handler থাকে সেটাও trigger হবে, এরপর তার parent-এ যদি event handler থাকে সেটাও trigger হবে, এভাবে উপরের দিকে উঠতে থাকবে document-পর্যন্ত।
 
 
 
