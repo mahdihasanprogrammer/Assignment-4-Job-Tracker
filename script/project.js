@@ -128,8 +128,10 @@ const filteredSection = document.getElementById('filtered-section');
 
 // function for interviewList;
 function renderInterview(){
-    filteredSection.innerHTML='';
-     // 🔥 length check add করো এখানে
+    // empty filtered section;
+    filteredSection.innerHTML=''; 
+
+    // add no-job card in filteredSection with condition;
     if(interviewList.length === 0){
         filteredSection.innerHTML = `
         <div class="bg-base-100 rounded-lg text-center py-16 sm:py-22">
@@ -145,7 +147,7 @@ function renderInterview(){
     for(const interviewItem of interviewList){
         
         const newDiv =document.createElement('div');
-        newDiv.className='p-6 bg-base-100 rounded-lg shadow space-y-5 border-t-4 border-green-600';
+        newDiv.className='p-6 bg-base-100 rounded-lg shadow space-y-5 border-l-6 border-green-600';
 
         newDiv.innerHTML=`
           <!-- part 1 -->
@@ -186,7 +188,11 @@ function renderInterview(){
 
 // function for rejectedList;
 function renderRejected(){
+
+    // empty filtered section;
     filteredSection.innerHTML='';
+
+    // add no-job card in filteredSection with condition;
 
        if(rejectedList.length === 0){
         filteredSection.innerHTML = `
@@ -202,7 +208,7 @@ function renderRejected(){
     for(const rejectItem of rejectedList){
         
         const newDiv =document.createElement('div');
-        newDiv.className='p-6 bg-base-100 rounded-lg shadow space-y-5 border-t-4 border-red-600 ';
+        newDiv.className='p-6 bg-base-100 rounded-lg shadow space-y-5 border-r-6 border-red-600 ';
 
         newDiv.innerHTML=`
           <!-- part 1 -->
